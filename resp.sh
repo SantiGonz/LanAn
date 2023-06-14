@@ -1,3 +1,4 @@
+#!/bin/bash 
 #Insertar las respuestas en los archivos de texto de cada usuario
 usuarios=('AlejandraDMV' 'delfinagomeza' 'RicardoMeb' 'leninperezr' 'aguadiana' 'manolojim')
 
