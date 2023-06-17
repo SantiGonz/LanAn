@@ -19,15 +19,15 @@ for dia in dias:
             print(usuario)
             scraper = twitter.TwitterUserScraper(usuario)
             i=0
-            for tweet in scraper.get_items():
-                tweet_date = tweet.date
-                if start_date <= tweet_date < end_date:
-                    tweet_json = json.loads(tweet.json())
-                    print(f"\n{tweet_json['id']}")
-                    f.write(str(tweet_json['id']))
+            for twit in scraper.get_items():
+                twit_date = twit.date
+                if start_date <= twit_date < end_date:
+                    twit_json = json.loads(twit.json())
+                    print(f"\n{twit_json['id']}")
+                    f.write(str(twit_json['id']))
                     f.write('\n')
                     f.flush()
                     i+=1
-                elif tweet_date < end_date :
+                elif twit_date < end_date :
                     # print(f"Fueron {i} twits")
                     break
