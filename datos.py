@@ -15,7 +15,7 @@ df = pd.DataFrame()
 for ruta in rutas:
     df = pd.concat([df, pd.read_json(ruta, lines=True)], ignore_index=True)
 #df
-model_path = "daveni/twitter-xlm-roberta-emotion-es"
+model_path = "daveni/twitter-xlm-roberta-emotion-es" #pensar otro modelo
 emotion_analysis = pipeline("text-classification", framework="pt", model=model_path, tokenizer=model_path)
 for i,row in df.iterrows():
     print(emotion_analysis(row["rawContent"]))
