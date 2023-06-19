@@ -1,3 +1,3 @@
 # LanAn
-BUscar como visualizar la información
+Buscar cómo visualizar la información
 y buscar otro modelo 
