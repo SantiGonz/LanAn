@@ -17,6 +17,17 @@ for ruta in rutas:
 #df
 model_path = "daveni/twitter-xlm-roberta-emotion-es" #pensar otro modelo
 emotion_analysis = pipeline("text-classification", framework="pt", model=model_path, tokenizer=model_path)
-for i,row in df.iterrows():
-    print(emotion_analysis(row["rawContent"]))
-  
+
+buffer = StringIO()
+for i, row in df.iterrows():
+    contenido = row
+    result = emotion_analysis(row["rawContent"])
+    print(result, file=buffer)
+
+# Guardar el contenido del buffer en un archivo CSV
+buffer.seek(0)  # Reiniciar el puntero del buffer al principio
+resultados_csv = pd.read_csv(buffer, delimiter=",")
+
+# Guardar el DataFrame en un archivo CSV
+ruta_archivo = "/home/santiago/LanAn/resultados.csv"
+resultados_csv.to_csv(ruta_archivo, index=False)
